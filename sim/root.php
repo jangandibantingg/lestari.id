@@ -7,7 +7,7 @@ class penjualan
 	public $con;
 	function __construct()
 	{
-		$this->con=new mysqli("localhost","lestarin_root","Nganjuklestar1","lestarin_imk");
+		$this->con=new mysqli("localhost","root","","backup_lestari");
 	}
 	function __destruct()
 	{
@@ -62,7 +62,7 @@ class penjualan
 
 
 		}else{
-			echo "<div class='red'><i class='fa fa-warning'></i> Maaf sepertinya username atau password anda salah.</div>";
+			echo "<div class='red'><i class='fa fa-warning'></i> select * from user where username='$username' and password='$password' and status='$loginas'</div>";
 		}
 		}
 	}
@@ -172,7 +172,7 @@ class penjualan
 				?>
 					<tr>
 						<td><?= $no ?></td>
-						
+
 						<td><?= $data['nama_barang'] ?></td>
 						<td><?= $data['kode'] ?></td>
 						<td><?= $data['nama_kategori'] ?></td>

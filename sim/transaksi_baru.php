@@ -46,7 +46,7 @@
 	                <select  class="form-control" id="id_barang" name="id_barang">
 	                    <option value=""> Pilih Barang</option>
 											<?php
-											$data=$root->con->query("select * from barang");
+											$data=$root->con->query("SELECT * from barang where stok !='0' ");
 											while ($f=$data->fetch_assoc()) {
 												echo "<option value='$f[id_barang]'>$f[nama_barang] (stock : $f[stok] | Harga : ".number_format($f['harga_jual']).")</option>";
 											}
@@ -61,9 +61,9 @@
 
 					</select> -->
 					<label>Jumlah Beli :</label>
-					<input required="required" type="number" name="jumlah">
+					<input required="required" type="number" name="jumlah" value="1">
 					<label>Diskon :</label>
-					<input required="required" type="number" name="diskon">
+					<input required="required" type="number" name="diskon" value="0">
 					<input type="hidden" name="trx" value="<?php echo date("d")."/AF/".$_SESSION['id']."/".date("y") ?>">
 					<button class="btnblue" type="submit"><i class="fa fa-save"></i> Simpan</button>
 				</form>

@@ -33,12 +33,11 @@ function Header()
     $this->Line(10,40,200,40);
 }
 function LoadData(){
-	mysql_connect("localhost","lestarin_root","Nganjuklestar1");
-	mysql_select_db("lestarin_imk");
+	include 'koneksites.php';
 	$id=base64_decode($_GET['oid']);
-	$data=mysql_query("select sub_transaksi.jumlah_beli,sub_transaksi.diskon,barang.nama_barang,barang.harga_jual,sub_transaksi.total_harga from sub_transaksi inner join barang on barang.id_barang=sub_transaksi.id_barang where sub_transaksi.id_transaksi='$id'");
+	$data=mysqli_query($conn, "select sub_transaksi.jumlah_beli,sub_transaksi.diskon,barang.nama_barang,barang.harga_jual,sub_transaksi.total_harga from sub_transaksi inner join barang on barang.id_barang=sub_transaksi.id_barang where sub_transaksi.id_transaksi='$id'");
 
-	while ($r=  mysql_fetch_array($data))
+	while ($r=  mysqli_fetch_array($data))
 		        {
 		            $hasil[]=$r;
 		        }
@@ -66,11 +65,10 @@ function BasicTable($header, $data)
         $this->Ln();
     }
 
-    mysql_connect("localhost","lestarin_root","Nganjuklestar1");
-	mysql_select_db("lestarin_imk");
+
 	$id=base64_decode($_GET['oid']);
-  $getsum=mysql_query("select sum(total_harga) as grand_total,sum(jumlah_beli) as jumlah_beli from sub_transaksi where id_transaksi='$id'");
-	$getsum1=mysql_fetch_array($getsum);
+  $getsum=mysqli_query($conn,"select sum(total_harga) as grand_total,sum(jumlah_beli) as jumlah_beli from sub_transaksi where id_transaksi='$id'");
+	$getsum1=mysqli_fetch_array($getsum);
 
   $this->cell(75);
 	$this->cell(15);

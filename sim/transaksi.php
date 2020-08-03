@@ -32,7 +32,8 @@
 					<th>Total Bayar</th>
 					<th>Nama Pembeli</th>
 					<th>No Invoice</th>
-					<th>Aksi</th>
+
+					<th>Print struck</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -48,9 +49,10 @@
 						<td>Rp. <?= number_format($f['total_bayar']) ?></td>
 						<td><?= $f['nama_pembeli'] ?></td>
 						<td><?= $f['no_invoice'] ?></td>
+						
 						<td>
-							<a href="?action=detail_transaksi&id_transaksi=<?= $f['id_transaksi'] ?>" class="btn bluetbl m-r-10"><span class="btn-edit-tooltip">Detail</span><i class="fa fa-eye"></i></a>
-							<a href="cetak_nota.php?oid=<?= base64_encode($f['id_transaksi']) ?>&id-uid=<?= base64_encode($f['nama_pembeli']) ?>&inf=<?= base64_encode($f['no_invoice']) ?>&tb=<?= base64_encode($f['total_bayar']) ?>&uuid=<?= base64_encode(date("d-m-Y",strtotime($f['tgl_transaksi']))) ?>" target="_blank" class="btn bluetbl"><span class="btn-hapus-tooltip">Cetak</span><i class="fa fa-print"></i></a>
+							<a href="./cetakprint.php?no_invoice=<?= $f['no_invoice']  ?>" target="_blank" class="btn bluetbl m-r-10 btn-info" ><i class="fa fa-print"></i></a>
+
 						</td>
 					</tr>
 					<?php
@@ -69,6 +71,6 @@
 	</div>
 </div>
 
-<?php 
+<?php
 }
 include "foot.php" ?>
