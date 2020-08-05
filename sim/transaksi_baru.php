@@ -64,7 +64,10 @@
 					<input required="required" type="number" name="jumlah" value="1">
 					<label>Diskon :</label>
 					<input required="required" type="number" name="diskon" value="0">
+
 					<input type="hidden" name="trx" value="<?php echo date("d")."/AF/".$_SESSION['id']."/".date("y") ?>">
+
+
 					<button class="btnblue" type="submit"><i class="fa fa-save"></i> Simpan</button>
 				</form>
 				<!--<script src="assets/jquery-1.11.2.js"></script>-->
@@ -136,9 +139,25 @@
 			<br>
 			<form class="form-input" action="handler.php?action=selesai_transaksi" method="post">
 					<label>Nama Pembeli :</label>
-					<input required="required" type="text" name="nama_pembeli">
+					<input required="required" type="text" name="nama_pembeli" value="Pelanggan">
+					<label>Tunai :</label><br>
+					<!-- <button type="button" id="nominal0" class="btn btn-danger " onclick="myFunction(0)" name="button" value="<?php echo "".number_format($total).""; ?>">Uang Pas</button> -->
+					<button class="btnblue" onclick="myFunction(1)" id="nominal1" value="<?= $getsum1['grand_total'] ?>" type="button">Uang Pas</button>
+					<button class="btnblue" onclick="myFunction(2)" id="nominal2" value="50000"  type="button">50.000</button>
+					<button class="btnblue" onclick="myFunction(3)" id="nominal3" value="100000" type="button">100.000</button>
+					<button class="btnblue" onclick="myFunction(4)" id="nominal4" value="150000" type="button">150.000</button>
+					<button class="btnblue" onclick="myFunction(5)" id="nominal5" value="200000" type="button">200.000</button>
+					<input required="required" type="text" id="money" name="tunai" placeholder="isi nominal pembayaran">
+
+
+					<br>
+
+
 					<input type="hidden" name="total_bayar" value="<?= $getsum1['grand_total'] ?>">
 					<button class="btnblue" id="prosestran" type="submit"><i class="fa fa-save"></i> Proses Transaksi</button>
+
+
+
 			</form>
 
 			</div>
@@ -147,6 +166,13 @@
 
 	</div>
 </div>
+<script>
+function myFunction(id) {
+	var nominal = document.getElementById("nominal"+id).value;
+	document.getElementById("money").value = nominal;
+}
+</script>
+
 
 <?php
 include "foot.php";

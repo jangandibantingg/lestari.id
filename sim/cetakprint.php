@@ -51,6 +51,12 @@ date_default_timezone_set("Asia/Jakarta");
 
 
       <img src="logo.jpeg" alt=""/ width="200px"> <br>
+
+
+
+      <p align="center"> Jalan A. Yani 189 Nganjuk  </p>
+      <p align="center"> Wa : 082140468989 </p>
+      <p align="center"> @lestaringk </p>
       <!-- <span class="text-center">jalan ayani</span> <br> -->
       <small>
 
@@ -91,11 +97,18 @@ date_default_timezone_set("Asia/Jakarta");
      </table>
        ------------------------------------------<br>
        <p align="right"> Subtotal Rp. <?php echo "".number_format($subtotal).""; ?></p>
+       <p align="right"> Cash Rp. <?php echo "".number_format($_GET['tunai']).""; ?></p>
+       <p align="right"> Kembali Rp. <?php echo "".number_format($_GET['kembali']).""; ?></p>
 
 
 
        ------------------------------------------<br>
-       <p align="right">http://lestaringanjuk.com/</p>
+       <p align="center"> Thank for Your Shoping </p>
+       <p align="center"> Every Purchase Cannot </p>
+       <p align="center"> Be Returned </p>
+
+
+       <!-- <p align="center">http://lestaringanjuk.com/</p> -->
 
 
        <br>

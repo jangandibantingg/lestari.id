@@ -65,7 +65,7 @@ if (isset($_GET['action'])) {
 		session_start();
 		$trx=date("d")."/AF/".$_SESSION['id']."/".date("y/h/i/s");
 
-			$query=$root->con->query("insert into transaksi set kode_kasir='$_SESSION[id]',total_bayar='$_POST[total_bayar]',no_invoice='$trx',nama_pembeli='$_POST[nama_pembeli]'");
+			$query=$root->con->query("insert into transaksi set kode_kasir='$_SESSION[id]',total_bayar='$_POST[total_bayar]',no_invoice='$trx',nama_pembeli='$_POST[nama_pembeli]',tunai='$_POST[tunai]'");
 
 		$trx2=date("d")."/AF/".$_SESSION['id']."/".date("y");
 		$get1=$root->con->query("select *  from transaksi where no_invoice='$trx'");
